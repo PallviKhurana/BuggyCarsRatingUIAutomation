@@ -24,26 +24,35 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://buggy.justtestit.org/");
 
+
         ClickCard(driver,"Popular Make");
+        Thread.sleep(500);
+
         WebElement CardText = driver.findElement(By.cssSelector("div[class=card] h3"));
+        Assert.assertEquals("Lamborghini", CardText.getText());
 
-        Assert.assertEquals("Lamborghini",CardText.getText());
+        GoToModel(driver,"Diablo");
 
-        List<WebElement> Models = driver.findElements(By.cssSelector("table tr td a"));
+        WebElement modelHeader = driver.findElement(By.cssSelector("div[class=row] h3"));
 
-        for (WebElement element : Models)
-        {
-            if(element.getText().equals("Diablo"))
-            {
-                element.click();
-            }
-        }
+        Assert.assertEquals("Diablo",modelHeader.getText());
        // NewUserRegistration(driver);
 
 
       //  Login(driver,randomString,"Random1$");
       //  Assert.assertEquals(true,IsUserLoggedIn(driver,"First " + randomString));
        // driver.close();
+    }
+
+    private static void GoToModel(WebDriver driver,String modelName) {
+        List<WebElement> Models = driver.findElements(By.cssSelector("table tr td a"));
+
+        for (WebElement element : Models) {
+            if (element.getText().equals(modelName)) {
+                element.click();
+                break;
+            }
+        }
     }
 
     private static void Login(WebDriver driver, String userName, String pwd)
@@ -106,6 +115,7 @@ public class BasePage {
             if(element.getText().equals(cardHeader))
             {
                 element.findElement(By.xpath("../a/img")).click();
+                break;
             }
         }
 
