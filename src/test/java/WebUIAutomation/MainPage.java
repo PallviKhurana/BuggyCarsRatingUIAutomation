@@ -3,23 +3,63 @@ package WebUIAutomation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
-public class MainPage {
+import java.util.List;
 
-    private static void Login(WebDriver driver, String userName, String pwd)
+public class MainPage extends  Base {
+
+    @FindBy(how = How.CSS,using = "div input[name=login]")
+    WebElement login;
+
+    @FindBy(how = How.CSS,using = "div input[name=password]")
+    WebElement password;
+
+    @FindBy(how = How.CSS,using = "button[class*=success]")
+    WebElement loginBtn;
+
+    @FindBy(how = How.CSS,using = "li span[class*=nav-link]")
+    WebElement navProfileName;
+
+    @FindBy(how = How.CSS,using = "form[class=form-inline] a[class*=btn-success-outline]")
+    WebElement registerBtn;
+
+    @FindAll(@FindBy(how = How.XPATH,using = "//div[@class='card']/h2"))
+    List<WebElement> cards;
+
+    public MainPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void Login(String userName, String pwd)
     {
-        WebElement login = driver.findElement(By.cssSelector("div input[name=login]"));
-        WebElement password = driver.findElement(By.cssSelector("div input[name=password]"));
-        WebElement loginBtn = driver.findElement(By.cssSelector("button[class*=success]"));
-
         login.sendKeys(userName);
         password.sendKeys(pwd);
         loginBtn.click();
     }
 
-    private static boolean IsUserLoggedIn(WebDriver driver,String profileFirstName)
+     public boolean IsUserLoggedIn(String profileFirstName)
     {
-        WebElement navProfileName = driver.findElement(By.cssSelector("li span[class*=nav-link]"));
-        return navProfileName.isDisplayed();
+        return navProfileName.getText().contains(profileFirstName);
+    }
+
+    public void ClickRegisterBtn()
+    {
+        registerBtn.click();
+    }
+
+    public void ClickCard(String cardHeader)
+    {
+        for (WebElement element : cards)
+        {
+            if(element.getText().equals(cardHeader))
+            {
+                element.findElement(By.xpath("../a/img")).click();
+                break;
+            }
+        }
+
     }
 }
