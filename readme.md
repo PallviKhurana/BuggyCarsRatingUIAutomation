@@ -9,10 +9,7 @@
 
   <p align="center">
     This selenium based java automation project caters to UI automation of different flows for the website : https://buggy.justtestit.org/ 
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
+   <br />
   </p>
 </p>
 
@@ -20,11 +17,12 @@
 ## About The Project
 This is a java maven project: BuggyCarsRatingUiAutomation.
 
+Test Approach document: https://github.com/PallviKhurana/BuggyCarsRatingUIAutomation/blob/master/Test%20Approach_BuggyCarRating.pdf
+
 Structure:
 
-src 
-    --> 
-    
+ /src/
+ 
         main
              --> resources
            
@@ -35,7 +33,8 @@ src
 Under src folder we have two folders main and test.
 
 Main folder has a resource folder inside it that contains chromedriver.exe. Chromedriver is downloaded from : https://chromedriver.chromium.org/downloads
-Note: Make sure the chromedriver version should be same as version of Chrome installed in your PC.
+
+**Note**: Make sure the chromedriver version should be same as version of Chrome installed in your PC.
 
 Test folder contains WebUIAutomation Package that contains PageObjects like MainPage.java , MakePage.java etc.
 
@@ -47,29 +46,19 @@ ii) Used Selenium libraries for interacting with website.
 iii) Used Page Object Model Pattern to structure code.
 iv) Used TestNG annotations for writing tests.
 
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
+```
 ### Installation
-
+```
 1. Clone the repo
    ```sh
    https://github.com/PallviKhurana/BuggyCarsRatingUIAutomation.git
    ```
 2. Install IDE IntelliJ : https://www.jetbrains.com/idea/download/
      
-3. Open the cloned repo in IntelliJ (File > Open and choose the project from the location where it is downloaded)
+3. Open the cloned repo in IntelliJ 
+```sh
+File > Open and choose the project from the location where it is downloaded
+```
 4. Configure JDK 
   ```sh
    File> Project Structure > Project SDK and choose version 16.0.2
