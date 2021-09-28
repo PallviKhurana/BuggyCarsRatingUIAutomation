@@ -1,34 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -47,47 +16,36 @@
   </p>
 </p>
 
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+This is a java maven project: BuggyCarsRatingUiAutomation.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Structure:
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+src 
+    --> 
+    
+        main
+             --> resources
+           
+           
+        test
+             --> java/WebUIAutomation
+
+Under src folder we have two folders main and test.
+
+Main folder has a resource folder inside it that contains chromedriver.exe. Chromedriver is downloaded from : https://chromedriver.chromium.org/downloads
+Note: Make sure the chromedriver version should be same as version of Chrome installed in your PC.
+
+Test folder contains WebUIAutomation Package that contains PageObjects like MainPage.java , MakePage.java etc.
 
 
 ### Built With
-
-* []()
-* []()
-* []()
-
+```
+i) IDE : Intellij Windows Client to code the project.
+ii) Used Selenium libraries for interacting with website.
+iii) Used Page Object Model Pattern to structure code.
+iv) Used TestNG annotations for writing tests.
 
 
 <!-- GETTING STARTED -->
@@ -107,18 +65,44 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   https://github.com/PallviKhurana/BuggyCarsRatingUIAutomation.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+2. Install IDE IntelliJ : https://www.jetbrains.com/idea/download/
+     
+3. Open the cloned repo in IntelliJ (File > Open and choose the project from the location where it is downloaded)
+4. Configure JDK 
+  ```sh
+   File> Project Structure > Project SDK and choose version 16.0.2
+```
 
+![image](https://user-images.githubusercontent.com/15661497/135017449-689a27d0-82ed-4fb2-a0df-6e26fc27abe3.png)
 
+5. Download dependencies
+  ```sh
+   Click on Maven> Generate Sources and Update folders
+```
+![image](https://user-images.githubusercontent.com/15661497/135017759-dd7f1409-3732-4f18-9b3d-b9515cb57fd9.png)
+
+6. Build the project
+ ```sh
+   Click on Build> Build Project
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Run all the tests
+ ```sh
+   - Navigate to src/test/java/WebUIAutomation/Tests.java
+   - Right Click on Tests and select "Run Tests"
+   
+```
+![image](https://user-images.githubusercontent.com/15661497/135018403-e813e30f-66c0-43f3-b0ae-f5d955d2a3ef.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Run individual test
+ ```sh
+   - Navigate to src/test/java/WebUIAutomation/Tests.java
+   - Open Tests.java
+   - Click on the green symbol against the test name and click on the Run <TestName> option as shown below
+   `````
+![image](https://user-images.githubusercontent.com/15661497/135018882-218b4b16-0ad0-4ffb-b694-04caa5b364b8.png)
