@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.interactions.Actions;
 
 public class RegistrationPage extends Base{
 
@@ -37,7 +36,7 @@ public class RegistrationPage extends Base{
     WebElement registerSuccessMsg;
 
 
-    public void NewUserRegistration(String userName)
+    public String NewUserRegistration(String userName)
     {
         user.sendKeys(userName);
         firstName.sendKeys("First " + userName);
@@ -49,6 +48,6 @@ public class RegistrationPage extends Base{
 
         String actualSuccessMsg = registerSuccessMsg.getText();
         Assert.assertEquals(RegisterSuccessMsg,actualSuccessMsg);
-        System.out.println("New User registered with username: "+ userName );
+        return userName;
     }
 }

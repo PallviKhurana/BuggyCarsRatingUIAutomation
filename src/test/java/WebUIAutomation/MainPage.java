@@ -29,6 +29,12 @@ public class MainPage extends  Base {
     @FindAll(@FindBy(how = How.XPATH,using = "//div[@class='card']/h2"))
     List<WebElement> cards;
 
+    @FindAll(@FindBy(how = How.CSS,using = "div[class=container] a[class=navbar-brand]"))
+    WebElement buggyRating;
+
+    @FindAll(@FindBy(how = How.XPATH,using = "//li//a[contains(text(),\"Logout\")]"))
+    WebElement logout;
+
     public MainPage(WebDriver driver) {
         super(driver);
     }
@@ -61,5 +67,14 @@ public class MainPage extends  Base {
             }
         }
 
+    }
+
+    public void ClickBuggyRatingBrandLogo()
+    {
+        buggyRating.click();
+    }
+    public void ClickLogout()
+    {
+        logout.click();
     }
 }
