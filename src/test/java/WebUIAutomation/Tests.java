@@ -28,6 +28,8 @@ public class Tests  {
         public void VerifyUserCanLogin()
         {
             MainPage mainPage = new MainPage(driver);
+
+            // Ideally values should be picked from env.config file
             mainPage.Login("PallviKhurana","pALLVI84$");
             Assert.assertTrue(mainPage.IsUserLoggedIn("Pallvi"));
             mainPage.ClickLogout();
@@ -46,15 +48,19 @@ public class Tests  {
         {
             driver.get("https://buggy.justtestit.org/");
             MainPage mainPage = new MainPage(driver);
+
+            // Click Card : Popular Make Card
             mainPage.ClickCard("Popular Make");
 
-            // Go to the Make Card
+            // Verify User Land on make page of Lamborghini
             MakePage makePage = new MakePage(driver);
             Assert.assertEquals("Lamborghini",makePage.GetCardHeader());
 
-            // Goto Model Page
+            // Click model : Diablo
             makePage.GoToModel("Diablo");
             ModelPage modelPage = new ModelPage(driver);
+
+            // Verify user is on Diablo model page
             Assert.assertEquals("Diablo",modelPage.GetModelHeader());
         }
 
@@ -68,11 +74,10 @@ public class Tests  {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         String newUserName = registrationPage.NewUserRegistration(GenerateRandomString());
         mainPage.Login(newUserName,"Random1$");
-        Thread.sleep(500);
-
-        mainPage.ClickBuggyRatingBrandLogo();
 
 
+
+        mainPage.ClickBuggyRatingBrandLogo(driver);
         mainPage.ClickCard("Popular Make");
 
         // Go to the Make Card
@@ -81,19 +86,20 @@ public class Tests  {
 
         makePage.GoToModel("Murciélago");
         ModelPage modelPage = new ModelPage(driver);
-        Integer getCurrentVoteCountBeforeAddingCommentOnModelPage = modelPage.GetLatestCount();
+        Integer getCurrentVoteCountBeforeAddingCommentOnModelPage = modelPage.GetLatestCount(driver);
 
         modelPage.AddComment("This is expensive!!");
 
-        Thread.sleep(1000);
+        // Need to remove anti-pattern
+        Thread.sleep(500);
+        Assert.assertTrue(modelPage.IsVoteSuccessFull());
 
-        Integer getCurrentVoteCountAfterAddingNewCommentOnModelPage = modelPage.GetLatestCount();
+        Integer getCurrentVoteCountAfterAddingNewCommentOnModelPage = modelPage.GetLatestCount(driver);
         Assert.assertTrue(getCurrentVoteCountAfterAddingNewCommentOnModelPage > getCurrentVoteCountBeforeAddingCommentOnModelPage);
         driver.navigate().back();
         Assert.assertTrue(getCurrentVoteCountAfterAddingNewCommentOnModelPage > getCurrentVoteCountBeforeAddingCommentOnMakeTable);
         mainPage.ClickLogout();
     }
-
 
     private static String GenerateRandomString()
     {

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ModelPage extends Base{
 
@@ -44,8 +46,11 @@ public class ModelPage extends Base{
         return successVoteMsg.getText().equals(VoteSuccessMsg);
     }
 
-    public Integer GetLatestCount()
+    public Integer GetLatestCount(WebDriver driver)
     {
+        WebDriverWait wait = new WebDriverWait(driver,2);
+        wait.until(ExpectedConditions.elementToBeClickable(voteCount));
+
         return Integer.valueOf(voteCount.getText());
     }
 }
