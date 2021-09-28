@@ -1,14 +1,7 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">Buggy Car Rating UI Automation Framework</h3>
 
   <p align="center">
-    This selenium based java automation project caters to UI automation of different flows for the website : https://buggy.justtestit.org/ 
+  This selenium based java automation project caters to UI automation of different flows for the website : https://buggy.justtestit.org/ 
    <br />
   </p>
 </p>
@@ -19,7 +12,7 @@ This is a java maven project: BuggyCarsRatingUiAutomation.
 
 Test Approach document: https://github.com/PallviKhurana/BuggyCarsRatingUIAutomation/blob/master/Test%20Approach_BuggyCarRating.pdf
 
-Structure:
+**Structure**:
 
  /src/
  
@@ -48,15 +41,16 @@ iv) Used TestNG annotations for writing tests.
 
 ```
 ### Installation
-```
+
 1. Clone the repo
-   ```sh
-   https://github.com/PallviKhurana/BuggyCarsRatingUIAutomation.git
-   ```
-2. Install IDE IntelliJ : https://www.jetbrains.com/idea/download/
-     
-3. Open the cloned repo in IntelliJ 
+
 ```sh
+ https://github.com/PallviKhurana/BuggyCarsRatingUIAutomation.git
+ ```
+2. Install IDE IntelliJ : https://www.jetbrains.com/idea/download/
+
+3. Open the cloned repo in IntelliJ 
+```sh 
 File > Open and choose the project from the location where it is downloaded
 ```
 4. Configure JDK 
